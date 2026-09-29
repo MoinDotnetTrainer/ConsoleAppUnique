@@ -65,13 +65,39 @@
             //obj.Mul();
             //obj.Add();
 
-            RBI rbi = new RBI();
-            rbi.Withdraw();
+            //RBI rbi = new RBI();
+            //rbi.Withdraw();
 
-            SBI sbi = new SBI();
-            sbi.Deposite();
+            //SBI sbi = new SBI();
+            //sbi.Deposite();
 
 
+            //Products obj = new Products();
+            //obj.prosales();
+            //obj.ProductsDetails();
+            //obj.ProExpDate(); // extended
+            //obj.ProProfit();  // exteded
+
+
+
+            //Emp emp = new Emp();
+            //emp.EmpSal();
+            //emp.EmpDetails();
+            //emp.EmpProjectDetails();
+
+            // ExceptionHandling obj = new ExceptionHandling();
+            // obj.test();
+
+            RefOut obj = new RefOut();
+            //  obj.Exe();
+            obj.Ops4(12, 2, out int add, out int sub, out int mul);
+            if (add == 14)
+            {
+                Console.WriteLine("do this");
+            }
+            Console.WriteLine(add);
+            Console.WriteLine(sub);
+            Console.WriteLine(mul);
         }
     }
 }

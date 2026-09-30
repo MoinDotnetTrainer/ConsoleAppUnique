@@ -8,17 +8,101 @@ namespace ConsoleAppUnique
 {
     public class Props
     {
-        public int x, y, z;
+        public int res { get; set; } = 0;
+
+
+        private int x;
+        public int x_
+        {
+            get { return x; }
+            set
+            {
+                if (value < 0 || value > 50)
+                {
+                    throw new ArgumentOutOfRangeException("Values are not in the range");
+                }
+                else
+                {
+                    x = value;
+                }
+            }
+        }
+
+        private int y;
+
+        public int y_
+        {
+            get { return y; }
+            set
+            {
+                if (value < 0 || value > 50)
+                {
+                    throw new ArgumentOutOfRangeException("Values are not in the range");
+                }
+                else
+                {
+                    y = value;
+                }
+            }
+        }
+
+
+        public int Add()
+        {
+            int z = x + y;
+            return z;
+        }
+
+        // info , address
         // default scope of x,y,z
+
+        // we make use properties
+        // spl fun , getter and setter , private are exposed publicliy thrw prop
+        // x_ is like a alis for private field
+
+
+        public void ISAS()
+        {
+            string str = null;
+
+            // is returns a bool values
+            // as will compare and returns a value
+            object[] arr = { 12, "hi", 43.45, true, "Hello" };
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                string res = arr[i] as string;
+                // 12 is not a string TF , Null
+                // Hi is string , TF , HI
+                if (res is null)
+                {
+                    Console.WriteLine("No value");
+                }
+                else
+                {
+                    Console.WriteLine(res);
+                }
+
+            }
+
+
+
+            if (str is null) // TF
+            {
+                Console.WriteLine(" Str is   null");
+            }
+            else
+            {
+                Console.WriteLine(" str has a value");
+            }
+        }
     }
 
     public class Props2 : Props
     {
         public void Add()
         {
-            x = 24;
-            y = 34;
-            z = x + y;
+
         }
     }
 
@@ -67,7 +151,7 @@ namespace ConsoleAppUnique
             return (12, "test");
         }
 
-        public void Ops4(int x, int y , out int add, out int sub , out int mul)
+        public void Ops4(int x, int y, out int add, out int sub, out int mul)
         {
             add = x + y;
             sub = x - y;

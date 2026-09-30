@@ -1,4 +1,6 @@
-﻿namespace ConsoleAppUnique
+﻿using System.Diagnostics;
+
+namespace ConsoleAppUnique
 {
     internal class Program
     {
@@ -88,16 +90,34 @@
             // ExceptionHandling obj = new ExceptionHandling();
             // obj.test();
 
-            RefOut obj = new RefOut();
-            //  obj.Exe();
-            obj.Ops4(12, 2, out int add, out int sub, out int mul);
-            if (add == 14)
+            //RefOut obj = new RefOut();
+            ////  obj.Exe();
+            //obj.Ops4(12, 2, out int add, out int sub, out int mul);
+            //if (add == 14)
+            //{
+            //    Console.WriteLine("do this");
+            //}
+            //Console.WriteLine(add);
+            //Console.WriteLine(sub);
+            //Console.WriteLine(mul);
+
+            try
             {
-                Console.WriteLine("do this");
+                Props p = new Props();
+                p.x_ = 23;  // paper 1 of 50 
+                p.y_ = 34; // paper 2 of 50 marks
+              //  Console.WriteLine(p.Add());
+
+                p.ISAS();
             }
-            Console.WriteLine(add);
-            Console.WriteLine(sub);
-            Console.WriteLine(mul);
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
+
+            Console.ReadLine();
         }
     }
 }

@@ -8,6 +8,15 @@ using System.Xml.Schema;
 
 namespace ConsoleAppUnique
 {
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string LName { get; set; }
+        public string Department { get; set; }
+        public decimal Salary { get; set; }
+    }
     public class Student
     {
         public int ID { get; set; }
@@ -177,6 +186,113 @@ namespace ConsoleAppUnique
             var contains = (from s in arr2 select s).Contains(-100);
 
             //Console.WriteLine(contains);  // Rahul , Rahul@yahoo.com
+
+
+
+            // elements the can be fixed using
+
+            int[] arr3 = { 101, 101, 234, 5645, 234, 5645, 64, 75, 67, 78, 6786, 7897, 890, 890, 80, 9, 45, 6, 656 };
+
+            var ele = (from s in arr3 select s).ElementAt(3);
+            var eledf = (from s in arr3 select s).ElementAtOrDefault(2344);
+
+            var first = (from s in arr3 select s).First(x => x < 50);
+            var firstdef = (from s in arr3 select s).FirstOrDefault(x => x < 0);
+            //Console.WriteLine(firstdef);
+
+
+            var std = students.Where(x => x.Name == "Rahul").FirstOrDefault();
+            //  Console.WriteLine(std.Age);
+
+            var last = (from s in arr3 select s).Last();
+            var lastex = (from s in arr3 select s).Last(x => x < 40);
+            var lastdef = (from s in arr3 select s).FirstOrDefault(x => x < 0);
+
+
+
+            int[] arr4 = { 23, 34 };
+            // var single = (from s in arr4 select s).Single();
+            var singleex = (from s in arr4 select s).Single(x => x == 34);
+            //  Console.WriteLine(singleex);
+
+            int[] arr5 = { 101, 101, 34, 3, 2, 34, 3, 234, 5645, 234, 5645, 64, 75, 67, 78, 6786, 7897, 890, 890, 80, 9, 45, 6, 656 };
+
+            var take = (from s in arr5 select s).Take(5);
+            var skip = (from s in arr5 select s).Skip(5);
+
+            var takewhile = (from s in arr5 select s).TakeWhile(x => x > 50); // till the cond is true
+            var skipwhile = (from s in arr5 select s).SkipWhile(x => x > 50);
+            foreach (var item in skipwhile)
+            {
+                //Console.WriteLine(item);
+            }
+
+
+            List<Employee> employees = new List<Employee>
+{
+    new Employee { Id = 1, Name = "Ravi",LName="xyz",  Department = "IT",      Salary = 60000 },
+    new Employee { Id = 2, Name = "Priya",LName="xyz",  Department = "HR",      Salary = 50000 },
+    new Employee { Id = 3, Name = "Arun", LName="xyz",  Department = "IT",      Salary = 75000 },
+    new Employee { Id = 4, Name = "Sneha",LName="xyz",  Department = "HR",      Salary = 55000 },
+    new Employee { Id = 5, Name = "Kiran",LName="xyz",  Department = "Finance", Salary = 65000 },
+    new Employee { Id = 6, Name = "Anil", LName="xyz",  Department = "IT",      Salary = 50000 }
+};
+
+
+            var orderby = from s in employees orderby s.Salary select s;
+            var orderbydesc = from s in employees orderby s.Salary descending select s;
+
+            var thenby = employees.OrderBy(x => x.Id).ThenBy(x => x.Salary).ThenByDescending(x => x.Department);
+            foreach (var item in thenby)
+            {
+                // Console.WriteLine($"Id is {item.Id} name is {item.Name} dept is {item.Department} sal is {item.Salary}");
+            }
+
+
+            var groupby = from s in employees group s by s.Department;
+            var lookup = employees.ToLookup(x => x.Department);
+
+            foreach (var item in lookup)
+            {
+              // Console.WriteLine($"Department is {item.Key}");
+
+                foreach (var data in item)
+                {
+                 //   Console.WriteLine($"Id is {data.Id} name is {data.Name} dept is {data.Department} sal is {data.Salary}");
+                }
+            }
+
+
+            // immediate execution 
+            // lazy execution
+
+            List<Employee> employees1 = new List<Employee>
+{
+    new Employee { Id = 1, Name = "Ravi",LName="xyz",  Department = "IT",      Salary = 60000 },
+    new Employee { Id = 2, Name = "Priya",LName="xyz",  Department = "HR",      Salary = 50000 },
+    new Employee { Id = 3, Name = "Arun", LName="xyz",  Department = "IT",      Salary = 75000 },
+    new Employee { Id = 4, Name = "Sneha",LName="xyz",  Department = "HR",      Salary = 55000 },
+    new Employee { Id = 5, Name = "Kiran",LName="xyz",  Department = "Finance", Salary = 65000 },
+    new Employee { Id = 6, Name = "Anil", LName="xyz",  Department = "IT",      Salary = 50000 }
+};
+
+
+            var lazy = from s in employees1 where s.Salary > 60000 select s; // not start
+            // all the emp
+            var imm = (from s in employees1 where s.Salary > 60000 select s).Count();  // starts ends here
+            // count
+
+            employees1.Add(new Employee { Id = 7, Name = "xyz", LName = "abc", Department = "IT", Salary = 70000 });
+
+
+
+            foreach (var item in lazy)  // 3  // exe starts
+            {
+                 Console.WriteLine($"Id is {item.Id} name is {item.Name} dept is {item.Department} sal is {item.Salary}");
+            }
+
+
+            Console.WriteLine(imm);  // 2
 
 
 

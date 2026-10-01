@@ -264,12 +264,17 @@ namespace ConsoleAppUnique
 
 
 
-            AsyncAwait obj = new AsyncAwait();
+            //    AsyncAwait obj = new AsyncAwait();
 
-            Task t = new Task(obj.Exeasync);
-            t.Start();
-            t.Wait();
-            Console.ReadLine();
+            //    Task t = new Task(obj.Exeasync);
+            //    t.Start();
+            //    t.Wait();
+            //    Console.ReadLine();
+
+
+            LinqExamples.LinqEx();
         }
+
+
     }
 }

@@ -100,12 +100,9 @@ namespace ConsoleAppUnique
                        };
 
 
-
-
-
             foreach (var item in res7)
             {
-                // Console.WriteLine($"Id is {item.ID} Name is {item.Name} Gender is {item.Gender} branch is {item.Branch} Age is {item.Age}");
+                //Console.WriteLine($"Id is {item.ID} Name is {item.Name} Gender is {item.Gender} branch is {item.Branch} Age is {item.Age}");
             }
             //Console.WriteLine("foreach");
             //foreach (var item in arr)
@@ -118,7 +115,7 @@ namespace ConsoleAppUnique
             var res8 = obj.OfType<string>().ToList();
             foreach (var item in res8)
             {
-                //   Console.WriteLine(item);
+                //Console.WriteLine(item);
             }
 
 
@@ -202,7 +199,7 @@ namespace ConsoleAppUnique
 
 
             var std = students.Where(x => x.Name == "Rahul").FirstOrDefault();
-            //  Console.WriteLine(std.Age);
+            //Console.WriteLine(std.Age);
 
             var last = (from s in arr3 select s).Last();
             var lastex = (from s in arr3 select s).Last(x => x < 40);
@@ -211,7 +208,7 @@ namespace ConsoleAppUnique
 
 
             int[] arr4 = { 23, 34 };
-            // var single = (from s in arr4 select s).Single();
+            //  var single = (from s in arr4 select s).Single();
             var singleex = (from s in arr4 select s).Single(x => x == 34);
             //  Console.WriteLine(singleex);
 
@@ -229,14 +226,14 @@ namespace ConsoleAppUnique
 
 
             List<Employee> employees = new List<Employee>
-{
-    new Employee { Id = 1, Name = "Ravi",LName="xyz",  Department = "IT",      Salary = 60000 },
-    new Employee { Id = 2, Name = "Priya",LName="xyz",  Department = "HR",      Salary = 50000 },
-    new Employee { Id = 3, Name = "Arun", LName="xyz",  Department = "IT",      Salary = 75000 },
-    new Employee { Id = 4, Name = "Sneha",LName="xyz",  Department = "HR",      Salary = 55000 },
-    new Employee { Id = 5, Name = "Kiran",LName="xyz",  Department = "Finance", Salary = 65000 },
-    new Employee { Id = 6, Name = "Anil", LName="xyz",  Department = "IT",      Salary = 50000 }
-};
+            {
+                new Employee { Id = 1, Name = "Ravi",LName="xyz",  Department = "IT",      Salary = 60000 },
+                new Employee { Id = 2, Name = "Priya",LName="xyz",  Department = "HR",      Salary = 50000 },
+                new Employee { Id = 3, Name = "Arun", LName="xyz",  Department = "IT",      Salary = 75000 },
+                new Employee { Id = 4, Name = "Sneha",LName="xyz",  Department = "HR",      Salary = 55000 },
+                new Employee { Id = 5, Name = "Kiran",LName="xyz",  Department = "Finance", Salary = 65000 },
+                new Employee { Id = 6, Name = "Anil", LName="xyz",  Department = "IT",      Salary = 50000 }
+            };
 
 
             var orderby = from s in employees orderby s.Salary select s;
@@ -254,11 +251,11 @@ namespace ConsoleAppUnique
 
             foreach (var item in lookup)
             {
-              // Console.WriteLine($"Department is {item.Key}");
+                // Console.WriteLine($"Department is {item.Key}");
 
                 foreach (var data in item)
                 {
-                 //   Console.WriteLine($"Id is {data.Id} name is {data.Name} dept is {data.Department} sal is {data.Salary}");
+                    //   Console.WriteLine($"Id is {data.Id} name is {data.Name} dept is {data.Department} sal is {data.Salary}");
                 }
             }
 
@@ -267,14 +264,14 @@ namespace ConsoleAppUnique
             // lazy execution
 
             List<Employee> employees1 = new List<Employee>
-{
-    new Employee { Id = 1, Name = "Ravi",LName="xyz",  Department = "IT",      Salary = 60000 },
-    new Employee { Id = 2, Name = "Priya",LName="xyz",  Department = "HR",      Salary = 50000 },
-    new Employee { Id = 3, Name = "Arun", LName="xyz",  Department = "IT",      Salary = 75000 },
-    new Employee { Id = 4, Name = "Sneha",LName="xyz",  Department = "HR",      Salary = 55000 },
-    new Employee { Id = 5, Name = "Kiran",LName="xyz",  Department = "Finance", Salary = 65000 },
-    new Employee { Id = 6, Name = "Anil", LName="xyz",  Department = "IT",      Salary = 50000 }
-};
+            {
+                new Employee { Id = 1, Name = "Ravi",LName="xyz",  Department = "IT",      Salary = 60000 },
+                new Employee { Id = 2, Name = "Priya",LName="xyz",  Department = "HR",      Salary = 50000 },
+                new Employee { Id = 3, Name = "Arun", LName="xyz",  Department = "IT",      Salary = 75000 },
+                new Employee { Id = 4, Name = "Sneha",LName="xyz",  Department = "HR",      Salary = 55000 },
+                new Employee { Id = 5, Name = "Kiran",LName="xyz",  Department = "Finance", Salary = 65000 },
+                new Employee { Id = 6, Name = "Anil", LName="xyz",  Department = "IT",      Salary = 50000 }
+            };
 
 
             var lazy = from s in employees1 where s.Salary > 60000 select s; // not start
@@ -288,10 +285,8 @@ namespace ConsoleAppUnique
 
             foreach (var item in lazy)  // 3  // exe starts
             {
-                 Console.WriteLine($"Id is {item.Id} name is {item.Name} dept is {item.Department} sal is {item.Salary}");
+                Console.WriteLine($"Id is {item.Id} name is {item.Name} dept is {item.Department} sal is {item.Salary}");
             }
-
-
             Console.WriteLine(imm);  // 2
 
 

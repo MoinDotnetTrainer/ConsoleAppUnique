@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using ConsoleAppUnique.Solid;
+using System.Diagnostics;
 
 namespace ConsoleAppUnique
 {
@@ -258,9 +259,9 @@ namespace ConsoleAppUnique
 
             // Microsoft ,generics collections
 
-            //CollExamples obj = new CollExamples();
+            // CollExamples obj = new CollExamples();
 
-            //obj.NonGen();
+            // obj.NonGen();
 
 
 
@@ -272,8 +273,32 @@ namespace ConsoleAppUnique
             //    Console.ReadLine();
 
 
-            LinqExamples.LinqEx();
+            //   LinqExamples.LinqEx();
+
+            //Rectangle rect = new Square();
+            //rect.Width = 5;
+            //rect.Height = 10;
+
+            //Console.WriteLine(rect.Area()); // Expected: 50,100
+
+            //  IShape shape = new Square1(5);
+            // Console.WriteLine(shape.Area()); // Always correct
+
+            //            IShape rect = new Rectangle1(5,10);
+            //           Console.WriteLine(rect.Area()); // Always correct
+
+
+            Class2.M1();
+            Class2.M2(6);
+
+            // without debugging , we can see the output in console window
+            // with debugging , we can see the output in output window  
+            // flow of a program execution
         }
+
+
+
+
 
 
     }

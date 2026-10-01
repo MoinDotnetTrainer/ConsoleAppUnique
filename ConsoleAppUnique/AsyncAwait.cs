@@ -20,8 +20,6 @@ namespace ConsoleAppUnique
 
             return len;
         }
-
-
         public void Exe()
         {
             string filename = "C:\\Users\\m.a.khaja.moinuddin\\OneDrive - Accenture\\Desktop\\Myfile.txt";
@@ -37,8 +35,6 @@ namespace ConsoleAppUnique
             Console.WriteLine("Task7");
 
         }
-
-
         // async , await
         public async Task<int> ReturnCountAsync(string Filename)
         {
@@ -51,8 +47,6 @@ namespace ConsoleAppUnique
             }
             return len;
         }
-
-
         public async void Exeasync()
         {
             string filename = "C:\\Users\\m.a.khaja.moinuddin\\OneDrive - Accenture\\Desktop\\Myfile.txt";
